@@ -1,2 +1,2 @@
 ///@desc goto previous
-RoomManagerGotoPrevious();
+ROOM_MANAGER.goto_previous();

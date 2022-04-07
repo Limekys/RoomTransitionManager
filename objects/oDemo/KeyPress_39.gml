@@ -1,2 +1,2 @@
 ///@desc goto next
-RoomManagerGotoNext();
+ROOM_MANAGER.goto_next();

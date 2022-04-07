@@ -11,8 +11,8 @@ switch (state)
 		top_offset = _smooth_approach(top_offset, __GUI_HEIGHT / 2, smoothness);
 		if top_offset >= __GUI_HEIGHT / 2 && !wait_to_change
 		{
-			_before_change_function();
-			_before_change_function = function() { };
+			before_change_function();
+			before_change_function = function() { };
 			state = TRANSITION.disappear;
 			room_goto(target_room);
 		}

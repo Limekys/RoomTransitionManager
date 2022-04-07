@@ -1,8 +1,3 @@
-//SETTINGS
-//#macro _TRANSITION_TEXT_FONT fArial
-#macro _TRANSITION_SMOOTHNESS 8
-
-//INITIALIZATION
 enum TRANSITION {
 	nothing,
 	appear,
@@ -20,8 +15,9 @@ bottom_offset = __GUI_HEIGHT;
 target_room = noone;
 wait_to_end = false;	//Can be used if you want to temporarily stop the transition after changing rooms
 wait_to_change = false;	//Can be used if you want to temporarily stop the transition to the room
-smoothness = _TRANSITION_SMOOTHNESS;
-draw_debug = true;
+smoothness = _ROOM_MANAGER_SMOOTHNESS;
+draw_debug = _ROOM_MANAGER_SHOW_DEBUG;
+transition_text = "";
 
 _smooth_approach = function(value, destination, smoothness, threshold = 0.01) {
 	var difference = destination - value;
@@ -29,6 +25,40 @@ _smooth_approach = function(value, destination, smoothness, threshold = 0.01) {
 	return(lerp(value, destination, 1/smoothness));
 }
 
-_before_change_function = function() {
+before_change_function = function() {
 	
+}
+
+goto = function(room, wait_to_end = false, wait_to_change = false, transition_text = "") {
+	self.state = TRANSITION.appear;
+	self.target_room = room;
+	self.wait_to_end = wait_to_end;
+	self.wait_to_change = wait_to_change;
+	self.transition_text = transition_text;
+}
+
+goto_next = function(wait_to_end = false, wait_to_change = false, transition_text = "") {
+	var _target_room = room_next(room);
+	if !room_exists(_target_room) _target_room = room_first;
+	
+	goto(_target_room, wait_to_end, wait_to_change);
+}
+
+goto_previous = function(wait_to_end = false, wait_to_change = false, transition_text = "") {
+	var _target_room = room_previous(room);
+	if !room_exists(_target_room) _target_room = room_last;
+	
+	goto(_target_room, wait_to_end, wait_to_change);
+}
+
+continue_transition = function() {
+	self.wait_to_end = false;
+}
+
+continue_to_change = function() {
+	self.wait_to_change = false;
+}
+
+set_before_change_function = function(_function) {
+	self.before_change_function = _function;
 }

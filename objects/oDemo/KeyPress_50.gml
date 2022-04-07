@@ -1,3 +1,3 @@
 ///@desc goto next wait to change
-RoomManagerGotoNext(false, true);
+ROOM_MANAGER.goto_next(false, true);
 alarm[1] = room_speed * 5;
