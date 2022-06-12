@@ -468,8 +468,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "Fonts",
-    "path": "folders/Fonts.yy",
+    "name": "DEMO",
+    "path": "folders/DEMO.yy",
   },
   "resourceVersion": "1.0",
   "name": "fArial",
