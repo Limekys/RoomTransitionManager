@@ -19,6 +19,7 @@ if transition_text != "" && top_offset >= __GUI_HEIGHT / 2 {
 
 //Debug
 if !draw_debug exit;
-draw_set_color(c_white);
-draw_text(128, 128, "Current room: " + string(room));
-draw_text(128, 128 + 16, "Target room: " + string(target_room));
+draw_set_color(c_black);
+DrawSetText(c_white, , fa_center, fa_middle, 1);
+draw_text(display_get_gui_width() div 2, display_get_gui_height() div 2 - 16, "Current room: " + string(room));
+draw_text(display_get_gui_width() div 2, display_get_gui_height() div 2 + 16, "Target room: " + string(target_room));

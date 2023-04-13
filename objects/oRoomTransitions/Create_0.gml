@@ -4,26 +4,18 @@ enum TRANSITION {
 	disappear
 }
 
-depth = -1000;
-
 __GUI_WIDTH = display_get_gui_width();
 __GUI_HEIGHT = display_get_gui_height();
 
 state = TRANSITION.nothing;
 top_offset = -1;
 bottom_offset = __GUI_HEIGHT;
-target_room = noone;
+target_room = room_first;
 wait_to_end = false;	//Can be used if you want to temporarily stop the transition after changing rooms
 wait_to_change = false;	//Can be used if you want to temporarily stop the transition to the room
 smoothness = _ROOM_MANAGER_SMOOTHNESS;
 draw_debug = _ROOM_MANAGER_SHOW_DEBUG;
 transition_text = "";
-
-_smooth_approach = function(value, destination, smoothness, threshold = 0.01) {
-	var difference = destination - value;
-    if (abs(difference) < threshold) return destination;
-	return(lerp(value, destination, 1/smoothness));
-}
 
 before_change_function = function() {
 	

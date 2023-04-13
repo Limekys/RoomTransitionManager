@@ -1,0 +1,17 @@
+{
+  "FolderOrderSettings": [
+    {"name":"Limekys","order":1,"path":"folders/Limekys.yy",},
+    {"name":"UsefulTools","order":1,"path":"folders/Limekys/UsefulTools.yy",},
+  ],
+  "ResourceOrderSettings": [
+    {"name":"sBack1","order":7,"path":"sprites/sBack1/sBack1.yy",},
+    {"name":"oDemo","order":3,"path":"objects/oDemo/oDemo.yy",},
+    {"name":"rRoomDemo2","order":5,"path":"rooms/rRoomDemo2/rRoomDemo2.yy",},
+    {"name":"oSteadyDeltaTime","order":1,"path":"objects/oSteadyDeltaTime/oSteadyDeltaTime.yy",},
+    {"name":"sBack2","order":8,"path":"sprites/sBack2/sBack2.yy",},
+    {"name":"rRoomDemo3","order":6,"path":"rooms/rRoomDemo3/rRoomDemo3.yy",},
+    {"name":"oRoomTransitions","order":1,"path":"objects/oRoomTransitions/oRoomTransitions.yy",},
+    {"name":"sBack3","order":9,"path":"sprites/sBack3/sBack3.yy",},
+    {"name":"rRoomDemo1","order":4,"path":"rooms/rRoomDemo1/rRoomDemo1.yy",},
+  ],
+}
