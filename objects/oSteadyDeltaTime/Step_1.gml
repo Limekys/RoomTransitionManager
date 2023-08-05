@@ -1,17 +1,23 @@
-/// @desc  Manage Delta Timing Update
-dtPrevious = dt;
-dt = delta_time/1000000;
-global.dt_unsteady = dt*dt_scale;
+///@desc System
 
-if (dt > 1/dt_fps_min) {
-	if (dtRestored) { 
-		dt = 1/dt_fps_min; 
+// Store previous internal delta time
+dt_previous = dt;
+// Update internal delta time
+dt = delta_time/1000000;
+// Set raw unsteady delta time affected by time scale
+global.dt_unsteady = dt*scale;
+
+// Prevent delta time from exhibiting sporadic behaviour
+if (dt > 1/min_fps) {
+	if (dt_restored) { 
+		dt = 1/min_fps; 
 	} else { 
-		dt = dtPrevious;
-		dtRestored = true;
+		dt = dt_previous;
+		dt_restored = true;
 	}
 } else {
-	dtRestored = false;
+	dt_restored = false;
 }
 
-global.dt_steady = dt*dt_scale;
+// Assign internal delta time to global delta time affected by the time scale
+global.dt_steady = dt*scale;
